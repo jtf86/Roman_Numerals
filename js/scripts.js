@@ -4,6 +4,8 @@
 var project = "Roman Numerals";
 var myName = "JTF";
 
+
+// business logic
 var rome = function(number) {
   var numerals = ["", "", "", "", "", "", ""];
   var numerals_position = ["M", "D", "C", "L", "X", "V", "I"];
@@ -109,11 +111,11 @@ function rome_J(num) {
 
 function speedRun() {
   var start_time = new Date().getTime();
-  for (counter=1;counter <= 5000;counter++) {
-    rome(349);
+  for (counter=1;counter <= 10000;counter++) {
+    rome_J(349);
   }
   var end_time = new Date().getTime();
-  console.log(end_time - start_time);
+  console.log((end_time - start_time) + " milliseconds.");
 }
 
 
@@ -124,11 +126,11 @@ $(document).ready(function() {
   $("#this_output span").text(project);
   $("#footer span").text(myName);
 
-  // page business logic
+  // page event logic
   $("#input").submit(function(event) {
     event.preventDefault();
     var userInput = parseInt($("#input_text").val());
-    var output = rome(userInput);
+    var output = rome_J(userInput);
     $(".calculated_output").text(output);
     $(".my_result").show();
     speedRun();
